@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        var fncMap={};    // 동적 함수가 저장될 곳.
+
+        function init(){
+            makeCallBackFnc('1', 'p');   // 함수를 만든다.
+            makeCallBackFnc('2', 'pp');    // 위에서 만든 함수와는 다른 함수가 생성
+            fncMap['1']();    // 1번째 함수 호출
+            fncMap['2']();    // 2번째 함수 호출
+        }
+
+
+        // fncMap에 key, function 으로 동적으로 함수가 저장된다.
+        function makeCallBackFnc(name, param){
+            return fncMap[name]=async function(){
+                alert('name = '+name+', param = '+param);
+            }
+        }
+
+        init();
+    </script>
+</head>
+<body>
+
+</body>
+
+
+</html>
